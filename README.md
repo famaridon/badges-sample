@@ -1,18 +1,8 @@
-# electron-quick-start
+# Badges sample
 
-**Clone and run for a quick way to see Electron in action.**
+Simple sample to use (app.badgeCount)[https://electronjs.org/docs/api/app#appbadgecount-linux-macos]
 
-This is a minimal Electron application based on the [Quick Start Guide](https://electronjs.org/docs/tutorial/quick-start) within the Electron documentation.
-
-**Use this app along with the [Electron API Demos](https://electronjs.org/#get-started) app for API code examples to help you get started.**
-
-A basic Electron application needs just these files:
-
-- `package.json` - Points to the app's main file and lists its details and dependencies.
-- `main.js` - Starts the app and creates a browser window to render HTML. This is the app's **main process**.
-- `index.html` - A web page to render. This is the app's **renderer process**.
-
-You can learn more about each of these components within the [Quick Start Guide](https://electronjs.org/docs/tutorial/quick-start).
+## Clone and run
 
 ## To Use
 
@@ -20,25 +10,56 @@ To clone and run this repository you'll need [Git](https://git-scm.com) and [Nod
 
 ```bash
 # Clone this repository
-git clone https://github.com/electron/electron-quick-start
+git clone https://github.com/famaridon/badges-sample.git
 # Go into the repository
-cd electron-quick-start
+cd badges-sample
 # Install dependencies
 npm install
 # Run the app
-npm start
+npm run dist
+```
+This will produce 2 files :
+
+* dist/badges-sample_1.0.0_amd64.deb
+* dist/badges-sample_1.0.0_amd64.snap
+
+### Work fine with deb
+
+```bash
+# install deb file
+dpkg -i dist/badges-sample_1.0.0_amd64.deb
+
+# run application
+badges-sample
 ```
 
-Note: If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
+set a new count the dock display badge count.
 
-## Resources for Learning Electron
+![deb.gif](files/deb.gif)
 
-- [electronjs.org/docs](https://electronjs.org/docs) - all of Electron's documentation
-- [electronjs.org/community#boilerplates](https://electronjs.org/community#boilerplates) - sample starter apps created by the community
-- [electron/electron-quick-start](https://github.com/electron/electron-quick-start) - a very basic starter Electron app
-- [electron/simple-samples](https://github.com/electron/simple-samples) - small applications with ideas for taking them further
-- [electron/electron-api-demos](https://github.com/electron/electron-api-demos) - an Electron app that teaches you how to use Electron
-- [hokein/electron-sample-apps](https://github.com/hokein/electron-sample-apps) - small demo apps for the various Electron APIs
+```bash
+# uninstall 
+apt remove badges-sample
+```
+
+### Fail with snap
+
+```bash
+# install snap file
+snap install dist/badges-sample_1.0.0_amd64.snap --dangerous
+
+# run application
+badges-sample
+```
+
+set a new count and the dock will not display badge count.
+
+![snap.gif](files/snap.gif)
+
+```bash
+# uninstall snap
+snap remove badges-sample
+```
 
 ## License
 
